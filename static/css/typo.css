@@ -1,0 +1,21 @@
+h1, h2, a, p{
+    font-family: century gothic thin;
+}
+
+li>a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.marquee-rtl div{
+    font-family: century gothic thin;
+}
+
+h2{
+    font-size: 30px;
+}
+
+h3{
+    font-family: century gothic thin;
+    font-style: italic;
+}
