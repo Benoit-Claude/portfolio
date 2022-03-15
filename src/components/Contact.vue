@@ -1,29 +1,29 @@
 <template>
     <div class="app">
 
-       <form @submit.prevent="creer">
+       <form @submit.prevent="sendEmail" ref="form">
       
         <h3>CONTACTEZ MOI !</h3>
         
             <div class="champ">
-                  <input type="text" id="nom" v-model="contact.acf.name" placeholder="Qui êtes-vous ?"/>
-                  <label for="nom">Nom</label>
+                  <input type="text" id="toName" name="name" v-model="name" placeholder="Qui êtes-vous ?"/>
+                  <label for="name">Nom</label>
             </div>
   
             <div class="champ">
-                  <input type="text" id="prenom" v-model="contact.acf.lastname" placeholder="Qui êtes-vous ?"/>
-                  <label for="prenom">Prénom</label>
+                  <input type="text" id="fromName" name="lastname" v-model="lastname"  placeholder="Qui êtes-vous ?"/>
+                  <label for="lastname">Prénom</label>
             </div>
         
             <div class="champ">
-                  <input type="text" id="mail" v-model="contact.acf.email" placeholder="Quelle est votre adresse Mail ?"/>
-                  <label for="mail">Mail</label>
+                  <input type="text" id="fromail" name="email" v-model="email" placeholder="Quelle est votre adresse Mail ?"/>
+                  <label for="email">Mail</label>
             </div>
         
   
             <div class="champ">
-                  <textarea id="msg" v-model="contact.acf.message" placeholder="Tapez ici votre message"/>
-                  <label for="msg">Message</label>
+                  <textarea id="msg" name="message" v-model="message"  placeholder="Tapez ici votre message"/>
+                  <label for="message">Message</label>
             </div>
     
     
@@ -51,20 +51,16 @@ import param from '@/param/param'
 export default {
   name: 'Contact',
   data () {
-    return {
-          contact: {
-                acf: {
-                  name: null,
-                  lastname: null,
-                  email: null,
-                  message: null,
-                }
-          }
+    return {  
+      name: '',
+      lastname:'',
+      email: '',
+      message: ''
       }
   },
 
   methods : {
-        creer: function (){
+        /*creer: function (){
               axios({
                 method: 'post',
                 url: param.auth,
@@ -100,13 +96,40 @@ export default {
 
             }.bind(this))
             .catch(error => console.log(error))
-           }
+           },*/
+
+          
+
+            sendEmail() {
+            emailjs.sendForm('service_o4qcynm', 'template_rw47hy4', this.$refs.form, 'PqpsMrUh9W23fNVeW', {
+                name: this.name,
+                lastname: this.lastname,
+                email: this.email,
+                message: this.message,
+            })
+                .then((result) => {
+                    console.log('SUCCESS!', result.text);
+                    this.message = param.message.envoiMail
+                    this.$router.push('/');
+                }, (error) => {
+                    console.log('FAILED...', error.text);
+                    this.message = param.message.echecEnvoiMail
+                });
+                this.name = ''
+                this.lastname = ''
+                this.email = ''
+                this.message = ''
+            }
         },
   
 
 
                
   mounted(){
+
+    
+
+
         $("input,textarea").blur(function () {
     // En sortant d'un champ du Form (désélection)
   

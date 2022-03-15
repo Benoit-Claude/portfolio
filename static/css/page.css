@@ -1,5 +1,9 @@
 /* Ici sont stylisés les headers et footers par défaut des pages*/
 
+html{
+  overflow-x: hidden;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -21,6 +25,7 @@ body{
 #header {
     width: 100%;
     z-index: 100;
+    
 }
 
 .fixed {

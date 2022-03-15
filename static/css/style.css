@@ -487,6 +487,18 @@ main {
   margin: 150px 0;
 }
 
+
+@media (max-width: 1150px) {
+  .cardsites{
+    height: 230px;
+    width: 280px;
+    margin: 50px auto;
+  }
+  .siteweb{
+    display: block;
+  }
+}
+
 .cardsites .cardsi, .infograf .cardsi{
   position: absolute;
   height: 100%;
@@ -659,6 +671,44 @@ main {
   color: #f2f2f2;
 }
 
+@media (max-width: 1150px) {
+   .infograf{
+    height: 230px;
+    width: 280px;
+    margin: 50px auto;
+  }
+  .menuinfo{
+    justify-content: center;
+  }
+  .photo{
+    display: block;
+  }
+  .photo video{
+    min-width: 330px;
+    height: 170px;
+    margin: 0;
+    background-size: cover;
+  }
+  #carrousel{
+    width: 335px;
+    height: 1000px;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 130px;
+  }
+  #container{
+    width: 340px;
+  }
+  .photo video{
+    padding-bottom: 20px;
+  }
+  #d, #g {
+    display: none;
+  }
+}
+
 
 /* Page Musique*/
 
@@ -678,6 +728,7 @@ main {
   height: 400px;
   border-radius: 10px;
 }
+
 
 .cardmus img{
   object-fit: cover;
@@ -705,4 +756,25 @@ main {
 
 a{
   text-decoration: none;
+}
+
+@media (max-width: 1150px) {
+  .contain .cardmus{
+   height: 230px;
+   width: 280px;
+   margin: 50px auto;
+ }
+ .cardmus img{
+  height: 280px;
+  width: 280px;
+ }
+ .contain{
+   justify-content: center;
+ }
+ .cardmus h2{
+  position: relative;
+  top: -200px;
+  left: 80px;
+  letter-spacing: 5px;
+}
 }
